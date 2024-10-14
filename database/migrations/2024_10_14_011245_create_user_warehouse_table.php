@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->integer('accept')->nullable();
             $table->date('date')->nullable();
+            $table->boolean('is_notified')->default(0);
             $table->timestamps();
 
             $table->index('user_id');

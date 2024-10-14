@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('telegram_id')->unique();
+            $table->bigInteger('chat_id')->unique();
+            $table->string('name')->nullable()->change();
             $table->string('email')->nullable()->change();
             $table->string('password')->nullable()->change();
         });
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->dropColumn('telegram_id');
             $table->string('email')->unique()->nullable(false)->change();
             $table->string('password')->nullable(false)->change();
+            $table->string('name')->nullable(false)->change();
         });
     }
 };
